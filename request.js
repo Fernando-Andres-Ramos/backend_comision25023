@@ -1,3 +1,4 @@
+/* Clase constructora con la logica para consumir la API */
 class Request {
   constructor(params,body){
     this.params = params;
@@ -5,6 +6,7 @@ class Request {
     this.url = "https://fakestoreapi.com"
   }
 
+  /* Devolver productos o 1 producto por su id */
   async get(){
     try{
       const request = await fetch(`${this.url}/${this.params}`)
@@ -16,6 +18,7 @@ class Request {
     }
   }
 
+  /* Crear productos */
   async post(){
     try{
       const request = await fetch(`${this.url}/products`,{
@@ -31,11 +34,13 @@ class Request {
     }
   }
 
+  /* Actualizar productos por su id */
   async put(){
     /* Metodo sin utilizar por ahora*/
     return "Metodo sin utilizar actualmente"
   }
 
+  /* Borrar 1 producto por su id */
   async delete(){
     try{
       const request = await fetch(`${this.url}/${this.params}`,{
