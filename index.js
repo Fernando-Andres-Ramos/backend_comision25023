@@ -2,7 +2,7 @@
 import Request from './request.js'
 
 /* Desestructura los argumentos al iniciar npm start */
-const [processMethod, params, title, price, category] = process.argv.slice(2);
+const [argvMethod, params, title, price, category] = process.argv.slice(2);
 
 
 /* Programa principal */
@@ -10,10 +10,10 @@ async function Main (){
   try {
 
     /* Verifica que se reciba algún metodo*/
-    if(!processMethod)
+    if(!argvMethod)
       throw "Error: Debe ingresarse una petición Get, Post, Put o Delete";
   
-    let method = processMethod.toLowerCase()
+    let method = argvMethod.toLowerCase()
   
     /* Revisa si el metodo solicitado es valido para la aplicación */
     if (method != 'get' && method != 'post' && method != 'put' && method != 'delete'){
